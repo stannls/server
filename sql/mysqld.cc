@@ -5026,11 +5026,11 @@ static int init_server_components()
   init_thr_lock();
   backup_init();
 
-  if (init_thr_timer(thread_scheduler->max_threads + extra_max_connections))
+  /*if (init_thr_timer(thread_scheduler->max_threads + extra_max_connections))
   {
     fprintf(stderr, "Can't initialize timers\n");
     unireg_abort(1);
-  }
+  }*/
 
   my_uuid_init((ulong) (my_rnd(&sql_rand))*12345,12345);
   wt_init();
