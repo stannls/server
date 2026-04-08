@@ -6160,6 +6160,7 @@ int mysqld_main(int argc, char **argv)
   /* Atomic write initialization must be done as root */
   my_init_atomic_write();
 
+  /*
   if ((user_info= check_user(mysqld_user)))
   {
 #if defined(HAVE_MLOCKALL) && defined(MCL_CURRENT)
@@ -6169,6 +6170,7 @@ int mysqld_main(int argc, char **argv)
 #endif
       set_user(mysqld_user, user_info);
   }
+  */
 
 #ifdef WITH_WSREP
   wsrep_set_wsrep_on(nullptr);
