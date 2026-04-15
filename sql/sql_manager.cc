@@ -145,10 +145,11 @@ void start_handle_manager()
     DBUG_EXECUTE_IF("delay_start_handle_manager", my_sleep(1000););
     mysql_cond_init(key_COND_manager, &COND_manager,NULL);
     mysql_mutex_init(key_LOCK_manager, &LOCK_manager, NULL);
-    if ((err= mysql_thread_create(key_thread_handle_manager, &hThread,
-                                  &connection_attrib, handle_manager, 0)))
+    manager_thread_in_use = 1;
+    if (/*(err= mysql_thread_create(key_thread_handle_manager, &hThread,
+                                  &connection_attrib, handle_manager, 0))*/ 1)
     {
-      sql_print_warning("Can't create handle_manager thread (errno: %iE)", err);
+      sql_print_warning("Can't create handle_manager thread (errno: %iE)", /*err*/ 38);
       DBUG_VOID_RETURN;
     }
 
