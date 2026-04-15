@@ -3591,7 +3591,7 @@ overhead beyond the actual innodb_buffer_pool_size. */
 static constexpr size_t innodb_buffer_pool_size_max_default{0},
   innodb_buffer_pool_size_max_minimum{0};
 #else
-static constexpr size_t innodb_buffer_pool_size_max_default{8ULL << 40},// 8TiB
+static constexpr size_t innodb_buffer_pool_size_max_default{8ULL << 20},// 8TiB
   innodb_buffer_pool_size_max_minimum{innodb_buffer_pool_extent_size};
 #endif
 
