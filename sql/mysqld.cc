@@ -3227,14 +3227,14 @@ static void start_signal_handler(void)
   (void) my_setstacksize(&thr_attr,my_thread_stack_size);
 
   mysql_mutex_lock(&LOCK_start_thread);
-  if (unlikely((error= mysql_thread_create(key_thread_signal_hand,
+  /*if (unlikely((error= mysql_thread_create(key_thread_signal_hand,
                                            &signal_thread, &thr_attr,
                                            signal_hand, 0))))
   {
     sql_print_error("Can't create interrupt-thread (error %d, errno: %d)",
       error,errno);
     exit(1);
-  }
+  }*/
   signal_thread_needs_join= true;
   mysql_cond_wait(&COND_start_thread, &LOCK_start_thread);
   mysql_mutex_unlock(&LOCK_start_thread);
