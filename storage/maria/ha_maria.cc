@@ -3976,8 +3976,8 @@ static int ha_maria_init(void *p)
       ((force_start_after_recovery_failures != 0 ||
         maria_recovery_changed_data || recovery_failures) &&
        mark_recovery_success()))) ||
-    (aria_readonly && trnman_init(MAX_INTERNAL_TRID-16)) ||
-    ma_checkpoint_init(checkpoint_interval);
+    (aria_readonly && trnman_init(MAX_INTERNAL_TRID-16))/* ||
+    ma_checkpoint_init(checkpoint_interval)*/;
   maria_multi_threaded= maria_in_ha_maria= TRUE;
   maria_create_trn_hook= maria_create_trn_for_mysql;
   maria_assert_if_crashed_table= debug_assert_if_crashed_table;
